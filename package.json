@@ -16,5 +16,11 @@
   "bugs": {
     "url": "https://github.com/Cobrettie/node-auth1-project/issues"
   },
-  "homepage": "https://github.com/Cobrettie/node-auth1-project#readme"
+  "homepage": "https://github.com/Cobrettie/node-auth1-project#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "helmet": "^3.23.3",
+    "knex": "^0.21.1",
+    "sqlite3": "^5.0.0"
+  }
 }
