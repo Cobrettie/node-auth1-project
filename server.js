@@ -4,6 +4,8 @@ const cors = require("cors");
 const session = require("express-session");
 const knexSessionStore = require("connect-session-knex")(session);
 
+const restricted = require('./auth/restricted-middleware.js');
+
 const sessionConfig = {
   name: 'cgsession',
   secret: 'Bexley nights',
@@ -34,7 +36,7 @@ server.use(cors());
 server.use(express.json());
 server.use(session(sessionConfig));
 
-server.use('/api', usersRouter)
+server.use('/api/users', restricted, usersRouter)
 server.use('/api', authRouter)
 
 server.use((err, req, res, next) => {
