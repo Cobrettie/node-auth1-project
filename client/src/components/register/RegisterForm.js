@@ -1,10 +1,21 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 export default function RegisterForm() {
   const [credentials, setCredentials] = useState({
     username: '',
     password: ''
   })
+
+  function register(user) {
+    axios.post('http://localhost:5000/api/register', user)
+      .then(response => {
+        console.log(response)
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }
 
   function onChange(event) {
     setCredentials({
@@ -13,8 +24,9 @@ export default function RegisterForm() {
     })
   }
 
-  function onSubmit(event) {
+  async function onSubmit(event) {
     event.preventDefault();
+    await register(credentials);
     setCredentials({
       username: '',
       password: ''
@@ -24,6 +36,9 @@ export default function RegisterForm() {
 
   return (
     <div>
+      <div>
+        <h2>Register a user</h2>
+      </div>
       <form onSubmit={onSubmit}>
         <input 
           type='text'
