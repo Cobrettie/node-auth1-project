@@ -10,7 +10,11 @@ export default function RegisterForm() {
   function register(user) {
     axios.post('http://localhost:5000/api/register', user)
       .then(response => {
-        console.log(response)
+        console.log(response);
+        setCredentials({
+          username: '',
+          password: ''
+        })
       })
       .catch(err => {
         console.log(err)
@@ -24,14 +28,9 @@ export default function RegisterForm() {
     })
   }
 
-  async function onSubmit(event) {
+  function onSubmit(event) {
     event.preventDefault();
-    await register(credentials);
-    setCredentials({
-      username: '',
-      password: ''
-    })
-    console.log('credentials: ', credentials)
+    register(credentials);
   }
 
   return (
