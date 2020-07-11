@@ -1,13 +1,14 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function NavMenu() {
   return (
     <div>
       <nav>
         <ul>
-          <a href="../register/RegisterForm.js">register</a>
-          <a href="#">log in</a>
-          <a href="#">users</a>
+          <Link to='/api/register'>register</Link>
+          <Link to='/api/login'>log in</Link>
+          <Link to='/api/users'>users</Link>
         </ul>
       </nav>
     </div>

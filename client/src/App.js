@@ -1,16 +1,15 @@
 import React from 'react';
+import { Route } from 'react-router-dom';
 import NavMenu from './components/NavMenu/NavMenu.js';
-
+import RegisterForm from './components/register/RegisterForm.js';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
       <NavMenu />
-      <header className="App-header">
-        <h1>Users Application</h1>
-        <h2>Register, log in, and view all users</h2>
-      </header>
+
+      <Route exact path='/api/register' component={RegisterForm} />
     </div>
   );
 }
