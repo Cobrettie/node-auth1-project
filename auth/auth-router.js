@@ -17,7 +17,7 @@ router.post('/register', async (req, res) => {
   } catch (err) {
     logError(err);
     res.status(500).json({
-      errorMessage: "Server error"
+      errorMessage: "Server error, possible duplicate credentials"
     })
   }
 })
@@ -27,8 +27,11 @@ router.post('/login', async (req, res) => {
 
   try {
     const user = await users.findBy({username}).first();
+    console.log('user', user)
+    console.log('req.session', req.session);
     if (user && bcrypt.compareSync(password, user.password)) {
       req.session.user = user;
+      console.log('req.session.user', req.session.user);
       res.status(200).json({
         message: `Welcome ${username}, you are now logged in`
       })

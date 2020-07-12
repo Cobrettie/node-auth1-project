@@ -13,7 +13,7 @@ async function register(user) {
 
 function findBy(filter) {
   return db("users")
-    .select("id", "username", "password")
+    // .select("id", "username", "password")
     .where(filter)
 }
 

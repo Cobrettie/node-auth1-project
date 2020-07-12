@@ -1,10 +1,15 @@
 // check if session exists && user exists
-module.exports = (req, res, next) => {
-  if (req.session) {
-    next();
-  } else {
-    res.status(403).json({
-      errorMessage: "You shall not pass!"
-    })
+function restrict() {
+  return async (req, res, next) => {
+  console.log(req.session)
+    try {
+      if (req.session && req.session.user) {
+        next();
+      }
+    } catch (err) {
+      res.status(401).json({message: 'server error'});
+    }
   }
 }
+
+module.exports = restrict;
