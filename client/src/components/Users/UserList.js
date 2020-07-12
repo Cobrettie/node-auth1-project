@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './UserList.css';
 
 export default function UserList() {
   const [users, setUsers] = useState([]);
@@ -18,11 +19,15 @@ export default function UserList() {
   }
 
   return (
-    <div>
-      <h2>Users</h2>
-      <div>
+    <div className='main-container'>
+      <h2 className='main-heading'>Users</h2>
+      <div className='userlist-container'>
         {users.map(user => {
-          return <p key={user.id}>{user.username}</p>
+          return (
+            <div key={user.id} className='usercard'>
+              <p>{user.username}</p>
+            </div>
+          )
         })}
       </div>
     </div>
@@ -32,4 +37,4 @@ export default function UserList() {
 // left off here 1;28am o.O 
 // removed restrict() middleware method for now,
 // focus on jwt
-// improve functionality, improve styling, move on
+// improve functionality, improve styling, move on to next lecture/project

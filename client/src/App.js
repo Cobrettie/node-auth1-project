@@ -6,17 +6,6 @@ import LoginForm from './components/login/LoginForm.js';
 import UserList from './components/Users/UserList.js';
 import './App.css';
 
-const auth = {
-  isAuthenticated: false,
-  authenticate(cb) {
-    auth.isAuthenticated = true;
-    setTimeout(cb, 100);
-  },
-  signout(cb) {
-    auth.isAuthenticated = false;
-  }
-}
-
 function App() {
   return (
     <div className="App">
