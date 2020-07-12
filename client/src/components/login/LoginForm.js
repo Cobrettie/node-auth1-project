@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 
-export default function LoginForm() {
+export default function LoginForm(props) {
+  const history = useHistory();
   const [credentials, setCredentials] = useState({
     username: '',
     password: ''
   })
+  console.log(history)
 
   function logIn(credentials) {
     axios.post('http://localhost:5000/api/login', credentials)
       .then(response => {
-        console.log(response);
-        setCredentials({
-          username: '',
-          password: ''
-        })
+        console.log(response, props);
+        history.push("/api/users");
       })
       .catch(err => {
         console.log(err)

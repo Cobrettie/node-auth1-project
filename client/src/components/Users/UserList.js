@@ -4,17 +4,18 @@ import axios from 'axios';
 export default function UserList() {
   const [users, setUsers] = useState([]);
 
-  async function getUsers() {
-    await axios.get('http://localhost:5000/api/users')
+  useEffect(() => {
+    getUsers();
+  }, [])
+
+  function getUsers() {
+    axios.get('http://localhost:5000/api/users')
       .then(response => {
+        console.log(response)
         setUsers(response.data)
       })
       .catch(err => console.log(err))
   }
-
-  useEffect(() => {
-    getUsers();
-  }, [])
 
   return (
     <div>
