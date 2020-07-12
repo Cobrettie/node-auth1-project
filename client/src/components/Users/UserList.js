@@ -28,3 +28,8 @@ export default function UserList() {
     </div>
   )
 }
+
+// left off here 1;28am o.O 
+// removed restrict() middleware method for now,
+// focus on jwt
+// improve functionality, improve styling, move on

@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 
 export default function RegisterForm() {
+  const history = useHistory();
   const [credentials, setCredentials] = useState({
     username: '',
     password: ''
@@ -15,6 +17,7 @@ export default function RegisterForm() {
           username: '',
           password: ''
         })
+        history.push('/api/login')
       })
       .catch(err => {
         console.log(err)
