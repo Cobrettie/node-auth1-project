@@ -12,21 +12,20 @@
 .userlist-container {
   display: flex;
   flex-direction: column;
-  /* justify-content: space-evenly; */
-  /* border: 2px solid dodgerblue; */
+  align-items: center;
   background-color: #fefefe;
+  padding: 20px 0 10px;
   border-radius: 20px;
   box-shadow: -10px -10px 30px 4px rgba(0,0,0,0.1),
               10px 10px 30px 4px rgba(45,78,255,0.15);
 }
 
 .usercard {
+  /* width: 50%; */
   padding: 10px;
-  margin: 0 auto;
+  text-align: left;
 }
 
 .usercard p {
   font-size: 16px;
-  border-bottom: 1px solid #373737;
-  padding-bottom: 1px;
 }
